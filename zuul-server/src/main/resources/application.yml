@@ -1,0 +1,20 @@
+server:
+  port: 5555
+
+spring:
+  application:
+    name: zuul-server
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1111/eureka/
+zuul:
+  routes:
+    feign:
+      path: /api-feign/**
+      serviceId: eureka-producer-feign
+    ribbon:
+      path: /api-ribbon/**
+      serviceId: eureka-producer-ribbon
+

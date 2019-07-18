@@ -1,0 +1,19 @@
+server:
+  port: 1111
+
+spring:
+  application:
+    name: eureka-server
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    #关闭注册服务(注册自己,以便被其它注册服务发现)
+    register-with-eureka: false
+    #拉取服务列表关闭
+    fetch-registry: false
+    #注册中心地址,如果有多个服务,则需要以”,“ 隔开  注册eureka集群使用
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
